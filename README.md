@@ -14,30 +14,43 @@ import 'package:jhoo/jhoo.dart';
 import 'package:jhoo/src/elements/elementTree/tree.dart';
 ```
 
-Create a ```Page()``` object that accepts an app.
-App takes a list of UI elements and adds it to the body of the html document
+Use ```createPage()``` inside main method to create a new HTML page,
+provide ```pageName``` and ```element``` to the createPage() method.
 
-This code creates div element in body of html document
-and adds two 'p' html element with id "t1" and "t2" and their text
-as div element's children. The div element and it's children is attached to the 
-body of the html document.
+```void main() {
+  createPage(pageName: "Home Page", body: HomeElement());
+}```
 
-```
-  final mainPage = Page(
-      pageName: "Main Page",
-      app: App(body: [
-        Row(children: [
-          Text(id: "t1", text: "Element one"),
-          Text(id: "t2", text: "Element two")
-        ])
-      ]));
-```
+pageName is the tile of the html document and body takes the dom element
+that will be attached to the body of the html document.
+
+
+You can create dom elements by extending ```StatefulElement```
+and you can @override build() method to return DomElement.
+
+Here, ```HomeElement``` creates 3 Text element, which is 3 'p' html element with their 
+respective id and text.
+
+```class HomeElement extends StatefulElement {
+  @override
+  DomElement build() {
+    return Row(children: [
+      Text(id: "t1", text: "Welcome to HomePage"),
+      Text(id: "t2", text: "This is second element"),
+      Text(id: "t3", text: "This is thrid Element")
+    ]);
+  }
+}```
+
 
 ## Usage
 
-`/example` contains a sample web app built with Jhoo package
+`/example` contains a sample web app built with Jhoo package, it will demonstrate 
+how you can dynamically update the UI using ```StreamBuilder``` from Jhoo.
 
 
 ## Additional information
 
-Jhoo package is in it's early stages and not stable, it's currently under developement. Open to ideas and contribution.
+Jhoo package is in it's early stages and not stable, it's under developement. Please feel to share your ideas and contribution.
+
+run ```dart pub get``` to fix all errors after cloning the package

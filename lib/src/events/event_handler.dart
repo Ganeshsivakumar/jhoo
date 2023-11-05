@@ -5,28 +5,26 @@ class EventHandler {
   EventHandler();
   void updateElement(String elementId, dynamic data) {
     Element? element = findElementById(elementId);
-
-    if (element != null) {
-      element.text = data;
-      print("element updated");
-    } else {
-      print("Element with ID '$elementId' not found.");
-    }
+    element.text = data;
   }
 
-  Stream<dynamic> read<T>(Stream stream) {
-    StreamController controller = StreamController();
+  dynamic read<T>(Stream stream) {
+    dynamic event;
     stream.listen((event) {
-      controller.sink.add(event);
+      event = event;
     });
-    return controller.stream;
+    return event;
   }
 
   void onPressed(String id) {}
 
-  Element? findElementById(String elementId) {
+  Element findElementById(String elementId) {
     Element? element = document.getElementById(elementId);
-    return element;
+    if (element != null) {
+      return element;
+    } else {
+      throw Exception("Element with ID '$elementId' not found.");
+    }
   }
 
   StreamSubscription<int> updateElementStream(

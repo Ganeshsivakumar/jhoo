@@ -1,5 +1,6 @@
 import 'dart:html';
 import 'package:jhoo/src/elements/dom_element.dart';
+import 'package:jhoo/src/style/text_style.dart';
 import 'package:jhoo/src/utils/alignment.dart';
 
 ///Implements [DomElement] to create a paragraph html element
@@ -7,6 +8,7 @@ import 'package:jhoo/src/utils/alignment.dart';
 class Text implements DomElement {
   String text;
   String id;
+  TextStyle? style;
   Text({required this.id, required this.text});
 
   @override
@@ -31,7 +33,6 @@ class Container implements DomElement {
   }
 }
 
-//fix positional arguments error
 class Row implements DomElement {
   List<DomElement> children;
   String? crossAxisAlinment;
@@ -69,19 +70,20 @@ class Column implements DomElement {
   }
 }
 
-// handle button's onclick event
 class Button implements DomElement {
   String? text;
-  // VoidCallback? onPressed;
+  Function onPressed;
+  String id;
 
-  Button({this.text});
+  Button(this.text, {required this.onPressed, required this.id});
   @override
   Element build() {
     ButtonElement button = ButtonElement();
     button.text = text;
-    //button.onClick.listen((event) {});
-    //button.addEventListener("click", (event) => print("button clicked"));
-
+    button.id = id;
+    button.onClick.listen((event) {
+      onPressed();
+    });
     return button;
   }
 }
