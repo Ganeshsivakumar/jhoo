@@ -1,6 +1,6 @@
 
 
-Dart package to build dart web apps
+Dart package to build websites
 
 ## Features
 
@@ -9,7 +9,7 @@ Jhoo can help you create pure dart web apps with flutter like syntax
 ## Getting started
 
 Start by importing the package
-```
+```dart
 import 'package:jhoo/jhoo.dart';
 import 'package:jhoo/src/elements/elementTree/tree.dart';
 
@@ -18,7 +18,7 @@ import 'package:jhoo/src/elements/elementTree/tree.dart';
 Use ```createPage()``` inside main method to create a new HTML page,
 provide ```pageName``` and ```element``` to the createPage() method.
 
-```
+```dart
 void main() {
   createPage(pageName: "Home Page", body: HomeElement());
 }
@@ -35,7 +35,7 @@ and you can @override build() method to return DomElement.
 Here, ```HomeElement``` creates 3 Text element, which is 3 'p' html element with their 
 respective id and text.
 
-```
+```dart
 class HomeElement extends StatefulElement {
   @override
   DomElement build() {

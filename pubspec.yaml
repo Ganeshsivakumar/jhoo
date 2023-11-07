@@ -1,15 +1,19 @@
 name: jhoo
-description: A starting point for Dart libraries or applications.
+description: A dart package to build websites using dart:html library
 version: 0.0.1
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/Ganeshsivakumar/jhoo
 
 environment:
-  sdk: ^3.0.7
+  sdk: '>=3.0.0 <4.0.0'
 
-# Add regular dependencies here.
+platforms:
+  web: 
+
 dependencies:
-  # path: ^1.8.0
+  
 
 dev_dependencies:
   lints: ^2.0.0
   test: ^1.21.0
+
+license: MIT
