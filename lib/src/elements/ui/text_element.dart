@@ -16,6 +16,10 @@ class Text implements DomElement {
     ParagraphElement textElement = ParagraphElement();
     textElement.text = text;
     textElement.id = id;
+    textElement.style.fontSize = style?.fontSize;
+    textElement.style.fontWeight = style?.fontWeight;
+    textElement.style.fontFamily = style?.fontFamily;
+    textElement.style.color = style?.textColor;
     return textElement;
   }
 }

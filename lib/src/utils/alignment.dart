@@ -13,3 +13,13 @@ class CrossAxisAlignment {
   static String center = 'center';
   static String stretch = 'stretch';
 }
+
+class PaddingGeometry {
+  String? left;
+  String? right;
+  String? top;
+  String? bottom;
+  PaddingGeometry({this.top, this.bottom, this.right, this.left});
+}
+
+class TextAlignment {}
